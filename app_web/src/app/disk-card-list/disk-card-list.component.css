@@ -1,0 +1,41 @@
+.list-container 
+{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.disk-card 
+{
+    display: inline-block;
+    padding: 8px;
+    height: 140px;
+    width: 150px;
+    background-color: white;
+    border-radius: 14px;
+    border:none;  
+}
+
+ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+ul > li 
+{
+    display: inline;
+}
+
+.progress-container 
+{
+    background-color: #00ffff;
+    margin-left: 10px;
+}
+
+.info 
+{
+    font-size: 13px;
+    color: #171717;
+    font-weight: 300;
+}

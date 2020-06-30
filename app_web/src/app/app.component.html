@@ -1,0 +1,122 @@
+<div class="container-fluid teste">
+  <div class="row h-100">
+
+    <div class="col-2 p-2">
+      <div class="card-container h-100">
+        <div class="side-menu-header d-flex align-items-center">
+          <span class="mr-auto">Controle de Maquina</span>
+          <img class="profile-photo" src="assets/images/user1.jpg" alt="">
+        </div>
+
+        <div class="divider my-2"></div>
+
+        <search-input></search-input>
+
+        <span>Maquina</span>
+
+        <card-list [collection]="machineList" [selectedMachine]="selectedMachine" (onSelect)="onMachineSelect($event)"></card-list>
+      </div>
+    </div>
+
+    <div class="col-10 p-2">
+      <div class="row h-100">
+        <div class="col-12">
+          <div class="card-container">
+            <div class="row">
+              <div class="col-6">
+                <div class="col-12">
+                  <span class="title mb-1">Detalhe da Maquina</span>
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Nome da Maquina</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.machineName}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Endereço IP</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.localAddress}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Antivirus</span>
+                    </div>
+                    <div class="col">
+                      <span>{{(selectedMachine.antivirusInfo.hasAntivirusInstalled) ? 'Yes -' : 'No'}} {{selectedMachine.antivirusInfo.applicationName}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Versão Sistema Operacional</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.windowsVersion}}</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <span class="sub-title">Versão do FrameWork .Net</span>
+                    </div>
+                    <div class="col">
+                      <span>{{selectedMachine.runtimeVersion}}</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-6">
+                <div class="col-12">
+                  <span class="title mb-1">Informações do Disco Rigido</span>
+
+                  <!-- lista de HDs -->
+                  <disk-card-list [collection]="selectedMachine.hardDriveInfos"></disk-card-list>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="col-6">
+          <div class="card-container h-100">
+            <div class="container-fluid">
+              <div class="row d-flex mb-2">
+                <div>
+                  <span class="title mb-2">Digite o comando DOS</span>
+                </div>                
+              </div>  
+              <div class="row">
+                <textarea spellcheck="false" [(ngModel)]="input"></textarea>
+              </div>
+              <div class="ml-auto">
+                <custom-button buttonText="Executar Comando DOS" [isLoading]="isLoading" (onClick)="ExecutaComando()"></custom-button>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="col-6">
+          <div class="card-container h-100">
+            <div class="container-fluid">
+              <div class="row">
+                <span class="title mb-2">Resultado do Comando enviado.</span>
+              </div>  
+              <div class="row">
+                <div class="output-container">                 
+                  <span style="font-size: 13px;" *ngFor="let line of outputLines">{{line}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

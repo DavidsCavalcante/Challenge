@@ -1,0 +1,36 @@
+.custom-button 
+{
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    padding: 4px 10px;
+    color: #171717;
+    background-color: #00ffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.custom-button:hover
+{
+    background-color: rgb(0, 255, 76);
+}
+
+.spinner-border 
+{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: 0.05em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border .75s linear infinite;
+    animation: spinner-border .75s linear infinite;
+}
+
+.disabled 
+{
+    cursor: not-allowed;
+}
